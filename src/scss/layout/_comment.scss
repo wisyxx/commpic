@@ -1,0 +1,26 @@
+@use '../base/variables' as v;
+
+.comment-body {
+    display: flex;
+    gap: 2rem;
+
+    margin: 2rem;
+    padding: 2rem;
+    
+    border-radius: 1rem;
+    background-color: v.$white;
+}
+.votes {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+    border-radius: 1rem;
+
+    background-color: v.$lightGray;
+
+    .vote-num {
+        color: v.$moderateBlue;
+        font-size: 2rem;
+    }
+}
