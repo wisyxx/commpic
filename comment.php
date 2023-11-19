@@ -10,15 +10,26 @@
     </div>
 
     <main class="comment">
+        <div class="comment-info">
+            <div class="user-info">
+                <img class="user-ppf" src="src/images/avatars/image-juliusomo.png" alt="User profile image">
+                <p class="user-name">juliusomo</p>
+                <p class="comment-date">1 week ago</p>
+            </div>
+            
+            <div class="reply-button">
+                <img class="" src="src/images/icon-reply.svg" alt="Reply button">
+            </div>
+        </div>
+
         <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Quis est neque ad earum nobis, dolore excepturi sed hic aperiam aut. 
-            Hic nostrum possimus voluptate libero, rerum necessitatibus distinctio 
-            eveniet dolorum. In quos obcaecati rem ex dolores quasi ipsam maxime, 
-            mollitia eaque, tenetur ea doloremque accusantium tempore harum enim iure 
-            ab dolore expedita! Reprehenderit neque quibusdam similique, corrupti aut 
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Quis est neque ad earum nobis, dolore excepturi sed hic aperiam aut.
+            Hic nostrum possimus voluptate libero, rerum necessitatibus distinctio
+            eveniet dolorum. In quos obcaecati rem ex dolores quasi ipsam maxime,
+            mollitia eaque, tenetur ea doloremque accusantium tempore harum enim iure
+            ab dolore expedita! Reprehenderit neque quibusdam similique, corrupti aut
             dolorem perferendis
         </p>
-
     </main>
 </section>

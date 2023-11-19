@@ -1,26 +1,82 @@
 @use '../base/variables' as v;
 
 .comment-body {
-    display: flex;
-    gap: 2rem;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
 
-    margin: 2rem;
-    padding: 2rem;
-    
-    border-radius: 1rem;
-    background-color: v.$white;
+	margin: 2rem;
+	padding: 2rem;
+
+	border-radius: 1rem;
+	background-color: v.$white;
+	color: v.$grayishBlue;
 }
+
 .votes {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-height: 11rem;
 
-    padding: 1rem;
-    border-radius: 1rem;
+	padding: 1rem;
+	border-radius: 1rem;
 
-    background-color: v.$lightGray;
+	background-color: v.$lightGray;
 
-    .vote-num {
-        color: v.$moderateBlue;
-        font-size: 2rem;
-    }
+	.vote-num {
+		color: v.$moderateBlue;
+		font-size: 2rem;
+	}
+}
+
+.comment-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2rem;
+	color: v.$darkBlue;
+	font-weight: 700;
+
+	.user-ppf {
+		width: 5rem;
+	}
+	.user-info {
+		display: flex;
+		gap: 1rem;
+
+		font-weight: bold;
+		.comment-date {
+			font-weight: normal;
+			color: v.$grayishBlue;
+		}
+	}
+}
+
+.reply-button {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	font-size: 1.6rem;
+	color: v.$moderateBlue;
+
+	padding: 1rem;
+	border-radius: 1rem;
+
+	transition: background-color 200ms;
+
+    img {
+		width: 2rem;
+	}
+
+	&:hover {
+		cursor: pointer;
+		transition: background-color 200ms;
+		background-color: transparentize(v.$moderateBlue, $amount: 0.7);
+	}
+	&::after {
+		content: 'Reply';
+		display: inline-block;
+	}
 }
