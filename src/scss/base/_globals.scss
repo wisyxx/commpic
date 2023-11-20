@@ -11,6 +11,10 @@ html {
   font-family: 'Rubik', sans-serif;
   background-color: v.$lightGray;
 }
+body {
+  display: grid;
+  grid-template-columns: [main-start] 1fr [content-start] 2fr [content-end] 1fr [main-end];
+}
 
 h1, h2, h3, h4 {
   text-align: center;
