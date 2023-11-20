@@ -6,8 +6,9 @@
 	gap: 2rem;
 
 	grid-area: content-start;
+	grid-row: auto;
 
-	margin: 2rem;
+	margin: 1rem;
 	padding: 2rem;
 
 	border-radius: 1rem;
@@ -42,6 +43,7 @@
 
 	.user-ppf {
 		width: 5rem;
+		height: 5rem;
 	}
 	.user-info {
 		display: flex;
@@ -64,7 +66,7 @@
 	color: v.$moderateBlue;
 
 	padding: 1rem;
-	border-radius: 1rem;
+	border-radius: .5rem;
 
 	transition: background-color 200ms;
 

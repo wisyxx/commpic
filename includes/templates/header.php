@@ -10,3 +10,5 @@
     <link rel="stylesheet" href="/build/css/app.css">
     <title>Frontend Mentor | Interactive comments section</title>
 </head>
+
+<body>
