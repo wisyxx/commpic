@@ -66,18 +66,18 @@
 	color: v.$moderateBlue;
 
 	padding: 1rem;
-	border-radius: .5rem;
+	border-radius: 0.7rem;
 
 	transition: background-color 200ms;
 
-    img {
+	img {
 		width: 2rem;
 	}
 
 	&:hover {
 		cursor: pointer;
 		transition: background-color 200ms;
-		background-color: transparentize(v.$moderateBlue, $amount: 0.7);
+		background-color: v.$lightGrayishBlue;
 	}
 	&::after {
 		content: 'Reply';
