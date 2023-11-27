@@ -1,7 +1,6 @@
 @use 'variables' as v;
-// @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,400;0,500;0,700;0,900;1,400&display=swap');
+
 *,
 *:before,
 *:after {
@@ -12,20 +11,21 @@ html {
 	box-sizing: border-box;
 	font-size: 62.5%;
 	font-family: 'Barlow', sans-serif;
-	background-color: v.$lightGray;
-}
-body {
-	background-color: v.$white;
-	// display: grid;
-	// grid-template-columns:
-	// 	[main-start] 0.5fr
-	// 	[break-start] 0.2fr
-	// 	[content-start] 2.5fr [content-end]
-	// 	0.2fr [break-end]
-	// 	0.5fr [main-end];
 
-	// grid-template-rows: auto;
+	background-color: v.$blue;
+	color: v.$softWhite;
 }
+// body {
+// 	display: grid;
+// 	grid-template-columns:
+// 		[main-start] 0.5fr
+// 		[break-start] 0.2fr
+// 		[content-start] 2.5fr [content-end]
+// 		0.2fr [break-end]
+// 		0.5fr [main-end];
+
+// 	grid-template-rows: auto;
+// }
 
 h1,
 h2,

@@ -1,0 +1,29 @@
+@use '../base/variables' as v;
+
+.login {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background: rgb(250, 235, 239);
+	background: radial-gradient(
+		circle,
+		rgba(250, 235, 239, 1) 0%,
+		rgba(51, 61, 121, 1) 100%
+	);
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+
+	background-color: v.$softWhite;
+	color: v.$blue;
+
+	border-radius: 1rem;
+	padding: 2rem;
+
+	width: 30%;
+	height: 60%;
+}
