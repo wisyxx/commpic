@@ -1,4 +1,5 @@
 @use '../base/variables' as v;
+@use '../base/mixins' as m;
 
 .login {
 	height: 100vh;
@@ -9,21 +10,68 @@
 	background: rgb(250, 235, 239);
 	background: radial-gradient(
 		circle,
-		rgba(250, 235, 239, 1) 0%,
+		rgba(250, 235, 239, 1) -50%,
 		rgba(51, 61, 121, 1) 100%
 	);
 }
 
 form {
-	display: flex;
-	flex-direction: column;
+	background-color: v.$blue;
+	color: v.$softWhite;
+	border-radius: 0.5rem;
+	padding: 3rem;
+	font-size: 2rem;
+	margin: 3rem;
+	width: 50rem;
 
-	background-color: v.$softWhite;
-	color: v.$blue;
 
-	border-radius: 1rem;
-	padding: 2rem;
+	fieldset {
+		display: flex;
+		flex-direction: column;
+		border: none;
+		padding: 0;
+	}
 
-	width: 30%;
-	height: 60%;
+	label,
+	input[type='submit'] {
+		font-weight: 500;
+	}
+
+	input {
+		padding: 1rem;
+		outline: none;
+		border: none;
+		border-radius: 0.5rem;
+		margin-bottom: 2rem;
+		background-color: v.$softWhite;
+		color: v.$blue;
+		font-weight: 500;
+	}
+
+	input[type='submit'] {
+		color: v.$softWhite;
+		background-color: v.$moderateBlue;
+		margin: 0;
+		width: 100%;
+		transition: all 150ms;
+
+		&:hover {
+			transition: all 150ms;
+			background-color: lighten(v.$moderateBlue, $amount: 10);
+			cursor: pointer;
+		}
+
+		@include m.movile {
+			width: auto;
+		}
+	}
+}
+
+.create-account-paragraph {
+	margin: 1.6rem 0 0 0;
+	text-align: center;
+	a {
+		color: v.$softWhite;
+		font-weight: 500;
+	}
 }
