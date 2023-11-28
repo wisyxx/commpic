@@ -15,24 +15,12 @@ class User
     public $user_password;
     public $user_email;
 
-    public function __construct( $id, $user_name, $user_password, $user_email) 
+    public function __construct( $args = [] )
     {
-        $this->id = $id;
-        $this->user_name = $user_name;
-        $this->user_password = $user_password;
-        $this->user_email = $user_email;
-    }
-
-    protected function getLoginData($data) {
-        $userData = $data;
-
-        $this->getUser($userData);
-    }
-
-    protected function getUser($username) {
-        $query = "SELECT * FROM users WHERE user_name = $username";
-
-        return self::$db->query($query);
+        $this->id = $args['id'] ?? null;
+        $this->user_name = $args['name'] ?? null;
+        $this->user_password = $args['password'] ?? null;
+        $this->user_email = $args['email'] ?? null;
     }
 
     public static function setDB($database)
