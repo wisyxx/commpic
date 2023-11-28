@@ -1,6 +1,11 @@
 <?php
 require 'includes/app.php';
 includeTemplate('header');
+
+use App\User;
+
+
+
 ?>
 
 <main class="login">
