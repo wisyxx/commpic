@@ -4,7 +4,11 @@ includeTemplate('header');
 
 use App\User;
 
-$user = new User($_POST);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = new User($_POST);
+    $user->login();
+}
 
 ?>
 

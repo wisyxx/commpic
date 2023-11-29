@@ -23,6 +23,28 @@ class User
         $this->user_email = $args['email'] ?? null;
     }
 
+    public function login() 
+    {
+        $this->auth();
+    }
+
+    protected function auth() {
+        $this->authMail();
+    }
+
+    protected function authMail() 
+    {
+        $email = $this->user_email;
+        $query = "SELECT * FROM users WHERE user_email = '$email'";
+        $results = self::$db->query($query);
+        
+        if (!$results->fetch_assoc()) {
+            return 0; // TO-DO: Errors Validation: validate if the email exists
+        }
+        return 'Now auth password'; // TO-DO: Create authentication for the password
+                                    // TO-DO: Create methods to encript and decript password
+    }
+
     public function queryDB($query)
     {
         $result = self::$db->query($query);
