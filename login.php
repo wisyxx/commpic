@@ -4,7 +4,7 @@ includeTemplate('header');
 
 use App\User;
 
-
+$user = new User($_POST);
 
 ?>
 
