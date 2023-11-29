@@ -23,32 +23,53 @@ class User
         $this->user_email = $args['email'] ?? null;
     }
 
+    /* LOGIN */
     public function login() 
     {
-        $this->auth();
+        if(!$this->auth()) {
+            return var_dump(0);
+        }
+        header('Location: /topics.php');
+        session_start([
+            // OPTIONS
+        ]);
     }
 
     protected function auth() {
-        $this->authMail();
+        return $this->authMail();
     }
 
     protected function authMail() 
     {
         $email = $this->user_email;
         $query = "SELECT * FROM users WHERE user_email = '$email'";
-        $results = self::$db->query($query);
-        
-        if (!$results->fetch_assoc()) {
-            return 0; // TO-DO: Errors Validation: validate if the email exists
-        }
-        return 'Now auth password'; // TO-DO: Create authentication for the password
-                                    // TO-DO: Create methods to encript and decript password
+        $results = self::$db->query($query)->fetch_assoc();
+        // TO-DO: Errors Validation: validate if the email exists
+
+        $password = $results['user_password'];
+        return $this->authPassword($password);
+    }
+
+    protected function authPassword($hash) {
+        $password = $this->user_password;
+        return password_verify($password, $hash);
+        // TO-DO: Errors Validation: validate if the password is correct
+    }
+    
+    protected function hashPassword()
+    {
+        return password_hash($this->user_password, PASSWORD_BCRYPT);
+    }
+
+    /* VALIDATION */
+    protected function validate() {
+        // TO-DO
     }
 
     public function queryDB($query)
     {
         $result = self::$db->query($query);
-
+        
         $objectsArr = [];
 
         /* 
@@ -72,11 +93,6 @@ class User
             }
         }
         return $obj;
-    }
-
-    protected function hashPassword()
-    {
-        return password_hash($this->user_password, PASSWORD_BCRYPT);
     }
 
     public static function setDB($database)

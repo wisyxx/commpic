@@ -16,10 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST">
         <fieldset>
             <label for="email">E-mail</label>
-            <input type="e-mail" id="email" name="email">
+            <input type="e-mail" id="email" name="email" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
         </fieldset>
 
         <input type="submit" value="Enter">
