@@ -11,24 +11,31 @@ class User
     ];
 
     public $id;
-    public $user_name;
-    public $user_password;
-    public $user_email;
+    public $name;
+    public $password;
+    public $email;
 
     public function __construct($args = [])
     {
         $this->id = $args['id'] ?? null;
-        $this->user_name = $args['name'] ?? null;
-        $this->user_password = $args['password'] ?? null;
-        $this->user_email = $args['email'] ?? null;
+        $this->name = $args['name'] ?? null;
+        $this->password = $args['password'] ?? null;
+        $this->email = $args['email'] ?? null;
     }
 
+    public static function sanitizeEmail($post)
+    {
+        $post['email'] = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
+        if (!$post['email']) {
+            header('Location: /login.php');
+        }
+        return self::createObject($post);
+    }
     
-
-    public function queryDB($query)
+    protected function queryDB($query)
     {
         $result = self::$db->query($query);
-        
+
         $objectsArr = [];
 
         /* 
@@ -41,8 +48,7 @@ class User
 
         return $objectsArr;
     }
-
-    protected function createObject($arr)
+    protected static function createObject($arr)
     {
         $obj = new self;
 
@@ -54,6 +60,7 @@ class User
         return $obj;
     }
 
+    /* DB */
     public static function setDB($database)
     {
         self::$db = $database;

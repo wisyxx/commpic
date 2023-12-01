@@ -6,7 +6,7 @@ use App\User;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = new User($_POST['login']);
+    $sanitized = User::sanitizeEmail($_POST['login']);
 }
 
 ?>
