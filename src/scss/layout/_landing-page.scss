@@ -1,5 +1,9 @@
 @use '../base/variables' as v;
 
+:root {
+  --flare: url(../../src/images/flare.svg);
+}
+
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -22,15 +26,34 @@
     width: 50rem;
     font-size: 2.4rem;
   }
+
   a {
+    text-transform: capitalize;
     position: relative;
-    background: v.$softWhite;
     padding: 1rem;
     font-size: 2.4rem;
     color: v.$blue;
     border-radius: 1rem;
     font-weight: 500;
-	overflow: hidden;
+    background: rgb(250, 235, 239);
+    background: linear-gradient(
+      141deg,
+      rgba(250, 235, 239, 1) 0%,
+      rgba(86, 97, 198, 1) 100%
+    );
+    background-size: 30rem;
+    background-position: right;
+
+    // Flare in hover
+    &::before {
+      content: var(--flare);
+      position: absolute;
+      bottom: 75%;
+      right: 95%;
+      transform: rotateZ(0deg);
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
 
     // Under line hover
     &::after {
@@ -41,18 +64,27 @@
       width: 85%;
       height: 0.1em;
       opacity: 0;
-      transition: opacity 300ms, transform 300ms;
-      background: rgb(131, 58, 180);
-      background: linear-gradient(
-        141deg,
-        rgba(131, 58, 180, 1) 0%,
-        rgba(253, 29, 29, 1) 50%,
-        rgba(252, 176, 69, 1) 100%
-      );
+      transition: all 300ms;
+      background-color: v.$blue;
       transform: scale(0);
+      border-radius: 1rem;
     }
     &:hover {
       transition: all 300ms;
+      background-position: left;
+
+      // Flare
+      &::before {
+        content: var(--flare);
+        position: absolute;
+        bottom: 75%;
+        right: 95%;
+        transform: rotateZ(15deg);
+        opacity: 1;
+        transition: all 0.2s ease-in-out;
+      }
+
+      // Underline
       &::after {
         opacity: 1;
         transform: scale(1);

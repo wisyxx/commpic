@@ -6,8 +6,7 @@ use App\User;
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = new User($_POST);
-    $user->login();
+    $user = new User($_POST['login']);
 }
 
 ?>
@@ -16,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST">
         <fieldset>
             <label for="email">E-mail</label>
-            <input type="e-mail" id="email" name="email" required>
+            <input type="e-mail" id="email" name="login[email]" required>
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="login[password]" required>
         </fieldset>
 
         <input type="submit" value="Enter">

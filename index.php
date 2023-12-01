@@ -11,8 +11,9 @@ includeTemplate('header');
 		<p>
 			Talk with people all around the word
 			about all kind of topics
-			while you share your ideas 💡
+			while you share your ideas
 		</p>
+		
 		<a href="/login.php">Get started</a>
 	</main>
 </main>
