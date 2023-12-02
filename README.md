@@ -4,8 +4,9 @@
 Commpic is a web page that can be used to talk about any topic with people all around the word.
 
 ## Screenshots
-
+### Landing page
 ![Landing-page](src/images/screenshots/landing-page.png)
+### Log in
 ![login](src/images/screenshots/login.png)
 
 
