@@ -4,6 +4,7 @@ namespace App;
 
 class User
 {
+    protected static $errors;
     protected static $db;
     protected static $columnsDB = [
         'id', 'user_name',
@@ -23,15 +24,27 @@ class User
         $this->email = $args['email'] ?? null;
     }
 
-    public static function sanitizeEmail($post)
+    public function sanitizeEmail()
     {
-        $post['email'] = filter_var($post['email'], FILTER_VALIDATE_EMAIL);
-        if (!$post['email']) {
+        $email = $this->email;
+        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+        if (!$email) {
             header('Location: /login.php');
+            self::$errors[] = 'Invalid email';
         }
-        return self::createObject($post);
     }
-    
+
+    public function validate() {
+        if (!$this->email) {
+            self::$errors[] = 'You must write an email';
+        }
+        if (!$this->password) {
+            self::$errors[] = 'You must write a password';
+        }
+
+        return self::$errors;
+    }
+
     protected function queryDB($query)
     {
         $result = self::$db->query($query);
@@ -58,6 +71,9 @@ class User
             }
         }
         return $obj;
+    }
+    public static function getErrors() {
+        return self::$errors;
     }
 
     /* DB */
