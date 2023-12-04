@@ -24,22 +24,22 @@ class User
         $this->email = $args['email'] ?? null;
     }
 
-    public function sanitizeEmail()
+    protected function sanitizeEmail()
     {
         $email = $this->email;
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-        if (!$email) {
-            header('Location: /login.php');
-            self::$errors[] = 'Invalid email';
-        }
+        return $email;
     }
 
     public function validate() {
-        if (!$this->email) {
+        if ($this->email === '') {
             self::$errors[] = 'You must write an email';
         }
         if (!$this->password) {
             self::$errors[] = 'You must write a password';
+        }
+        if (!$this->sanitizeEmail() && $this->email !== '') {
+            self::$errors[] = 'Invalid email address';
         }
 
         return self::$errors;
@@ -72,6 +72,7 @@ class User
         }
         return $obj;
     }
+
     public static function getErrors() {
         return self::$errors;
     }
