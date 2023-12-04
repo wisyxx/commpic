@@ -5,10 +5,15 @@ includeTemplate('header');
 use App\User;
 
 $errors = User::getErrors();
+$user = new User;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = new User($_POST['login']);
     $errors = $user->validate();
+
+    if(empty($errors)) {
+        $errors = $user->login();
+    }
 }
 
 ?>
@@ -22,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endforeach; ?>
         <fieldset>
             <label for="email">E-mail</label>
-            <input type="e-mail" id="email" name="login[email]">
+            <input type="e-mail" id="email" name="login[email]" value="<?php echo $user->email ?>">
 
             <label for="password">Password</label>
             <input type="password" id="password" name="login[password]">
