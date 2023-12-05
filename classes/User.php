@@ -71,6 +71,28 @@ class User
         return self::$errors;
     }
     
+    /* ACTIVE RECORD */
+    protected function atributes() {
+        $atributes = [];
+        foreach(self::$columnsDB as $column) 
+        {
+            if ($column === 'id') continue;
+            $atributes[$column] = $this->$column;
+        }
+
+        return $atributes;
+    }
+
+    protected function sanitizeAtributes() {
+        $atributes = $this->atributes();
+
+        $sanitized = [];
+        foreach($atributes as $key => $value) {
+            $sanitized[$key] = self::$db->escape_string($value);
+        }
+
+        return $sanitized;
+    }
 
     protected function queryDB($query)
     {
