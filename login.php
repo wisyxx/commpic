@@ -10,7 +10,6 @@ $user = new User;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = new User($_POST['login']);
     $errors = $user->validate();
-
     if(empty($errors)) {
         $errors = $user->login();
     }

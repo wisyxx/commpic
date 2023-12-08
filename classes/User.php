@@ -10,12 +10,12 @@ class User
         'id', 'name',
         'email', 'password'
     ];
-    
+
     public $id;
     public $name;
     public $password;
     public $email;
-    
+
     public function __construct($args = [])
     {
         $this->id = $args['id'] ?? null;
@@ -23,7 +23,7 @@ class User
         $this->password = $args['password'] ?? '';
         $this->email = $args['email'] ?? '';
     }
-    
+
     /* LOG IN */
     protected function sanitizeEmail()
     {
@@ -32,27 +32,32 @@ class User
         return $email;
     }
 
-    protected function findUserByEmail() {
+    protected function findUserByEmail()
+    {
         $query = "SELECT * FROM users WHERE email = '" . self::$db->escape_string($this->email) . "';";
-        $result = self::$db->query($query);
-        
-        return $result;
+        $result = self::$db->query($query)->fetch_assoc();
+
+        return $this->createObject($result);
     }
-    
-    public function login() {
-        $userData = $this->findUserByEmail()->fetch_assoc();
-        $userData = $this->createObject($userData);
-        
-        if(password_verify($this->password, $userData->password)) {
-            session_start([
-                // OPTIONS
-            ]);
-        } else {
-            return debug(0);
+
+    public function login()
+    {
+        $userData = $this->findUserByEmail();
+        if (password_verify($this->password, $userData->password)) {
+            session_start();
+            $_SESSION['user-name'] = $userData->name;
+            $_SESSION['user-email'] = $userData->email;
+
+            header('Location: /topics.php');
+        } else if (!password_verify($this->password, $userData->password) || !$userData) {
+            return $this->validate();
         }
     }
 
-    public function validate() {
+    public function validate()
+    {
+        $password = $this->findUserByEmail()->password;
+
         if ($this->email === '') {
             self::$errors[] = 'You must write an email';
         }
@@ -63,19 +68,27 @@ class User
             self::$errors[] = 'Invalid email address';
             $this->email = '';
         }
-        
+        if ( // the password isnt correct, the password was writen and user exists 
+            // or user doest exist and we've got a password and email
+            !password_verify($this->password, $password) && $this->password && $password ||
+            !$password && $this->password && $this->email
+        ) {
+            self::$errors[] = 'Incorrect password or email';
+        }
+
         return self::$errors;
     }
-    
-    public static function getErrors() {
+
+    public static function getErrors()
+    {
         return self::$errors;
     }
-    
+
     /* ACTIVE RECORD */
-    protected function atributes() {
+    protected function atributes()
+    {
         $atributes = [];
-        foreach(self::$columnsDB as $column) 
-        {
+        foreach (self::$columnsDB as $column) {
             if ($column === 'id') continue;
             $atributes[$column] = $this->$column;
         }
@@ -83,11 +96,12 @@ class User
         return $atributes;
     }
 
-    protected function sanitizeAtributes() {
+    protected function sanitizeAtributes()
+    {
         $atributes = $this->atributes();
 
         $sanitized = [];
-        foreach($atributes as $key => $value) {
+        foreach ($atributes as $key => $value) {
             $sanitized[$key] = self::$db->escape_string($value);
         }
 
