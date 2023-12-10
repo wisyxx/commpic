@@ -1,7 +1,26 @@
 @use 'variables' as v;
 
-@mixin movile () {
-    @media (min-width: 469px) {
-        @content;
-    }
+@mixin movile() {
+	@media (min-width: 469px) {
+		@content;
+	}
+}
+
+@mixin standartButton($color, $bgColor, $fontSize, $padding) {
+	color: $color;
+	background-color: $bgColor;
+	margin: 0;
+	width: 100%;
+	transition: all 150ms;
+	font-size: $fontSize;
+	padding: $padding;
+	border: none;
+	border-radius: 0.5rem;
+	font-weight: 500;
+
+	&:hover {
+		transition: all 150ms;
+		background-color: lighten($bgColor, $amount: 10);
+		cursor: pointer;
+	}
 }
