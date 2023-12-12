@@ -2,37 +2,37 @@
 @use '../base/variables' as v;
 
 .topics-nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 2rem;
-	// flex-direction: column;
-
-	@include m.movile {
-		// flex-direction: row;
+	.welcome-mesaje {
+	  width: 17.4rem;
 	}
+	
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  flex-direction: column;
+  position: relative;
 
-	.actions {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		gap: 2rem;
+  @include m.movile {
+    flex-direction: row;
+    position: inherit;
+    .welcome-mesaje {
+      width: auto;
+    }
+  }
 
-		@include m.movile {
-			flex-direction: row;
-		}
+  .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
 
-		a {
-			@include m.standartButton(v.$softWhite, v.$softRed, 1.6rem, 1rem);
-			display: flex;
-			justify-content: center;
-		}
-        
-		.user-ppf {
-			object-fit: cover;
-			width: 5rem;
-			height: 5rem;
-			border-radius: 50%;
-		}
-	}
+    .user-ppf {
+      object-fit: cover;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+    }
+  }
 }

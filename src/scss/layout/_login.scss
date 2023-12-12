@@ -48,7 +48,7 @@ form {
 	}
 
 	input[type='submit'] {
-		@include m.standartButton(v.$softWhite, v.$moderateBlue, 2rem, 1rem);
+		@include m.standartButton(v.$softWhite, v.$moderateBlue, 1rem);
 
 		@include m.movile {
 			width: auto;
