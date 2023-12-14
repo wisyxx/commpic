@@ -2,77 +2,66 @@
 @use '../base/mixins' as m;
 
 .login {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	background: rgb(250, 235, 239);
-	background: radial-gradient(
-		circle,
-		rgba(250, 235, 239, 1) -150%,
-		rgba(86, 97, 198, 1) 100%
-	);
+  background: rgb(250, 235, 239);
+  background: radial-gradient(
+    circle,
+    rgba(250, 235, 239, 1) -150%,
+    rgba(86, 97, 198, 1) 100%
+  );
 }
 
-form {
-	background-color: v.$blue;
-	color: v.$softWhite;
-	border-radius: 0.5rem;
-	padding: 3rem;
-	font-size: 2rem;
-	margin: 3rem;
-	width: 50rem;
+.form {
+  background-color: v.$blue;
+  color: v.$softWhite;
+  border-radius: 0.5rem;
+  padding: 3rem;
+  font-size: 2rem;
+  margin: 3rem;
+  width: 50rem;
 
-	fieldset {
-		display: flex;
-		flex-direction: column;
-		border: none;
-		padding: 0;
-	}
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+  }
 
-	label,
-	input[type='submit'] {
-		font-weight: 500;
-	}
+  label,
+  .input[type='submit'] {
+    font-weight: 500;
+  }
 
-	input {
-		padding: 1rem;
-		outline: none;
-		border: none;
-		border-radius: 0.5rem;
-		margin-bottom: 2rem;
-		background-color: v.$softWhite;
-		color: v.$blue;
-		font-weight: 500;
-	}
+  .form__submit {
+    @include m.standartButton(v.$softWhite, v.$moderateBlue, 1rem);
 
-	input[type='submit'] {
-		@include m.standartButton(v.$softWhite, v.$moderateBlue, 1rem);
-
-		@include m.movile {
-			width: auto;
-		}
-	}
-	.errors {
-		color: v.$softRed;
-		font-weight: bold;
-		text-align: justify;
-		margin-bottom: 0.5rem;
-		&:last-of-type {
-			margin-bottom: 2rem;
-		}
-		&::before {
-			content: '⚠️';
-		}
-	}
+    @include m.movile {
+      width: auto;
+    }
+  }
+  .errors {
+    color: v.$softRed;
+    font-weight: bold;
+    text-align: justify;
+    margin-bottom: 0.5rem;
+    &:last-of-type {
+      margin-bottom: 2rem;
+    }
+    &::before {
+      content: '⚠️';
+    }
+  }
 }
 
-.create-account-paragraph {
-	margin: 1.6rem 0 0 0;
-	text-align: center;
-	a {
-		color: v.$softWhite;
-		font-weight: 500;
-	}
+.form__paragraph {
+  margin: 1.6rem 0 0 0;
+  text-align: center;
+  .form__link {
+    color: v.$softWhite;
+    font-weight: 500;
+  }
 }

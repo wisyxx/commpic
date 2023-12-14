@@ -10,7 +10,7 @@ $user = new User;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = new User($_POST['login']);
     $errors = $user->validate();
-    if(empty($errors)) {
+    if (empty($errors)) {
         $errors = $user->login();
     }
 }
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <main class="login">
-    <form method="POST">
+    <form class="form" method="POST">
         <?php foreach ($errors as $error) : ?>
             <div class="errors">
                 <?php echo $error; ?>
@@ -26,14 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endforeach; ?>
         <fieldset>
             <label for="email">E-mail</label>
-            <input type="e-mail" id="email" name="login[email]" value="<?php echo $user->email ?>">
+            <input class="input" type="e-mail" id="email" name="login[email]" value="<?php echo $user->email ?>">
 
             <label for="password">Password</label>
-            <input type="password" id="password" name="login[password]">
+            <input class="input" type="password" id="password" name="login[password]">
         </fieldset>
 
-        <input type="submit" value="Enter">
-        <p class="create-account-paragraph">Don't have an account, <a href="register.php">create one</a></p>
+        <input class="form__submit" type="submit" value="Enter">
+        <p class="form__paragraph">Don't have an account, <a class="form__link" href="register.php">create one</a></p>
     </form>
 </main>
 

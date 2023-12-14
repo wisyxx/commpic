@@ -51,13 +51,17 @@ p {
   font-size: 1.6rem;
 }
 
-button {
-  background-color: transparent;
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
-}
 a {
 	text-decoration: none;
 }
+
+.input {
+		padding: 1rem;
+		outline: none;
+		border: none;
+		border-radius: 0.5rem;
+		margin-bottom: 2rem;
+		background-color: v.$softWhite;
+		color: v.$blue;
+		font-weight: 500;
+	}
