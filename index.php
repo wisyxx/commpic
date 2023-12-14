@@ -5,17 +5,17 @@ includeTemplate('header');
 ?>
 
 <main class="landing-page">
-	<h1>Commpic</h1>
+	<h1 class="landig-page__title">Commpic</h1>
 
-	<main class="main">
-		<p>
+	<section class="landing-page__content">
+		<p class="landing-page__paragraph">
 			Talk with people all around the word
 			about all kind of topics
 			while you share your ideas
 		</p>
-		
-		<a href="/login.php">Get started</a>
-	</main>
+
+		<a class="landing-page__link" href="/login.php">Get started</a>
+	</section>
 </main>
 
 <?php

@@ -9,7 +9,7 @@
   flex-direction: column;
   height: 100vh;
 
-  h1 {
+  .landig-page__title {
     text-align: left;
     font-weight: 500;
     font-size: 4.8rem;
@@ -17,17 +17,18 @@
     height: 30%;
   }
 }
-.main {
+.landing-page__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  p {
+  
+  .landing-page__paragraph {
     width: 50rem;
     font-size: 2.4rem;
   }
 
-  a {
+  .landing-page__link {
     text-transform: capitalize;
     position: relative;
     padding: 1rem;
