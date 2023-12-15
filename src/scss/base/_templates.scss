@@ -13,18 +13,16 @@
   border-radius: 1rem;
 
   position: absolute;
-  top: 15rem;
+  top: 26rem;
 
   @include m.movile {
-    right: 2rem;
-    top: 8rem;
-    bottom: 50rem;
+    top: 11rem;
   }
 
   // Drop-menu transitions
   transition: all 150ms ease-in-out;
-  max-height: 0;
   opacity: 0;
+  max-height: 0;
   overflow: hidden;
 
   .user-menu__button--profile {
@@ -58,7 +56,7 @@
 
     overflow: hidden;
     opacity: 1;
-    z-index: 5;
+    z-index: 1;
 
     background-color: transparentize($color: v.$softWhite, $amount: 0.7);
     backdrop-filter: blur(10px);

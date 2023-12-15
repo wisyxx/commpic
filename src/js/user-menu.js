@@ -1,4 +1,4 @@
-const ppf = document.querySelector('.user-ppf');
+const ppf = document.querySelector('.user__ppf');
 const userMenu = document.querySelector('.user-menu');
 
 ppf.addEventListener('click', () => {

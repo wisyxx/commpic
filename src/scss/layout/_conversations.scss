@@ -1,37 +1,38 @@
 @use '../base/mixins' as m;
 @use '../base/variables' as v;
 
-.topics-nav {
-	.welcome-mesaje {
-	  width: 17.4rem;
-	}
-	
+.navigation {
+  .navigation__mesaje {
+    width: 17.4rem;
+    font-size: 3.2rem;
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
   flex-direction: column;
   position: relative;
+  padding: 3rem 5.8rem 0 5.8rem;
 
   @include m.movile {
     flex-direction: row;
     position: inherit;
-    .welcome-mesaje {
+    .navigation__mesaje {
       width: auto;
     }
   }
 
-  .actions {
+  .user {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2rem;
 
-    .user-ppf {
+    .user__ppf {
       object-fit: cover;
-      width: 5rem;
-      height: 5rem;
+      width: 7rem;
+      height: 7rem;
       border-radius: 50%;
     }
   }

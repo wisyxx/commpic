@@ -48,7 +48,7 @@ class User
             $_SESSION['user-name'] = $userData->name;
             $_SESSION['user-email'] = $userData->email;
 
-            header('Location: /topics.php');
+            header('Location: /conversations.php');
         } else if (!password_verify($this->password, $userData->password) || !$userData) {
             return $this->validate();
         }

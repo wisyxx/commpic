@@ -12,20 +12,9 @@ html {
   font-size: 62.5%;
   font-family: 'DM Sans', sans-serif;
 
-  background-color: v.$blue;
+  background-color: v.$quiteDark;
   color: v.$softWhite;
 }
-// body {
-// 	display: grid;
-// 	grid-template-columns:
-// 		[main-start] 0.5fr
-// 		[break-start] 0.2fr
-// 		[content-start] 2.5fr [content-end]
-// 		0.2fr [break-end]
-// 		0.5fr [main-end];
-
-// 	grid-template-rows: auto;
-// }
 
 h1,
 h2,
@@ -52,16 +41,16 @@ p {
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .input {
-		padding: 1rem;
-		outline: none;
-		border: none;
-		border-radius: 0.5rem;
-		margin-bottom: 2rem;
-		background-color: v.$softWhite;
-		color: v.$blue;
-		font-weight: 500;
-	}
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  background-color: v.$softWhite;
+  color: v.$blue;
+  font-weight: 500;
+}
