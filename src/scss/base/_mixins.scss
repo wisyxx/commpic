@@ -1,7 +1,12 @@
 @use 'variables' as v;
 
 @mixin movile() {
-  @media (min-width: 469px) {
+  @media (max-width: 669px) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media (max-width: 992px) {
     @content;
   }
 }

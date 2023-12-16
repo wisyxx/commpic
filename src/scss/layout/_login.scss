@@ -7,12 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  background: rgb(250, 235, 239);
-  background: radial-gradient(
-    circle,
-    rgba(250, 235, 239, 1) -150%,
-    rgba(86, 97, 198, 1) 100%
-  );
+  background: v.$quiteDark;
 }
 
 .form {
@@ -39,8 +34,9 @@
   .form__submit {
     @include m.standartButton(v.$softWhite, v.$moderateBlue, 1rem);
 
+    width: auto;
     @include m.movile {
-      width: auto;
+      width: 100%;
     }
   }
   .errors {

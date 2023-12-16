@@ -11,12 +11,12 @@
   background-color: none;
   background-blend-mode: overlay;
   border-radius: 1rem;
-
   position: absolute;
-  top: 26rem;
 
+  top: 11rem;
+  
   @include m.movile {
-    top: 11rem;
+    top: 26rem;
   }
 
   // Drop-menu transitions
@@ -26,7 +26,7 @@
   overflow: hidden;
 
   .user-menu__button--profile {
-    @include m.standartButton(v.$softWhite, v.$moderateBlue, 0.5rem 0.8rem);
+    @include m.standartButton(v.$softWhite, v.$blue, 0.5rem 0.8rem);
   }
   .user-menu__button--settings {
     @include m.standartButton(v.$softWhite, v.$grayishBlue, 0.5rem);

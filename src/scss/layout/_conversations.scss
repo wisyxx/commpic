@@ -1,24 +1,25 @@
 @use '../base/mixins' as m;
 @use '../base/variables' as v;
 
-.navigation {
-  .navigation__mesaje {
-    width: 17.4rem;
-    font-size: 3.2rem;
-  }
-
+.conversations-navigation {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column;
-  position: relative;
   padding: 3rem 5.8rem 0 5.8rem;
-
+  flex-direction: row;
+  position: inherit;
+  
+  .conversations-navigation__mesaje {
+    font-size: 32px;
+    width: auto;
+  }
+  
   @include m.movile {
-    flex-direction: row;
-    position: inherit;
-    .navigation__mesaje {
-      width: auto;
+    flex-direction: column;
+    position: relative;
+    .conversations-navigation__mesaje {
+      width: 17.4rem;
     }
   }
 
@@ -35,5 +36,54 @@
       height: 7rem;
       border-radius: 50%;
     }
+  }
+}
+
+.conversations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include m.movile {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  gap: 5rem;
+  margin: 3rem 5.8rem;
+}
+.conversation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: v.$softWhite;
+  color: v.$blue;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  height: 18rem;
+
+  transition: all ease-in-out 200ms;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: rgba(86, 97, 198, 0.4) 0px 5px, rgba(86, 97, 198, 0.3) 0px 10px,
+      rgba(86, 97, 198, 0.2) 0px 15px, rgba(86, 97, 198, 0.1) 0px 20px,
+      rgba(86, 97, 198, 0.05) 0px 25px;
+  }
+}
+.conversation__data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    background-color: v.$blue;
+    color: v.$quiteDark;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: v.$accent;
+    font-weight: 500;
   }
 }
