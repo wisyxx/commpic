@@ -7,12 +7,12 @@
   align-items: center;
   justify-content: center;
 
-  background: v.$quiteDark;
+  background: v.$background;
 }
 
 .form {
-  background-color: v.$blue;
-  color: v.$softWhite;
+  background-color: v.$primary;
+  color: v.$text;
   border-radius: 0.5rem;
   padding: 3rem;
   font-size: 2rem;
@@ -32,7 +32,7 @@
   }
 
   .form__submit {
-    @include m.standartButton(v.$softWhite, v.$moderateBlue, 1rem);
+    @include m.standartButton(v.$text, v.$secondary, 1rem);
 
     width: auto;
     @include m.movile {
@@ -40,7 +40,7 @@
     }
   }
   .errors {
-    color: v.$softRed;
+    color: v.$accent;
     font-weight: bold;
     text-align: justify;
     margin-bottom: 0.5rem;
@@ -57,7 +57,7 @@
   margin: 1.6rem 0 0 0;
   text-align: center;
   .form__link {
-    color: v.$softWhite;
+    color: v.$text;
     font-weight: 500;
   }
 }

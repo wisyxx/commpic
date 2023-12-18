@@ -6,7 +6,7 @@ require "functions.php";
 
 $db = conectarDB();
 
-use App\User;
+use Model\ActiveRecord;
 
-User::setDB($db);
+ActiveRecord::setDB($db);
 ?>

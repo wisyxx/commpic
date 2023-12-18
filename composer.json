@@ -1,17 +1,19 @@
 {
-	"name": "alvar/commpic",
-	"type": "project",
-	"license": "ISC",
-	"authors": [
-		{
-			"name": "Álvaro Hernández Colino",
-			"email": "alvarohcolino@gmail.com"
-		}
-	],
-	"require": {},
-	"autoload": {
-		"psr-4": {
-			"App\\": "./classes"
-		}
-	}
+  "name": "alvar/commpic",
+  "type": "project",
+  "license": "ISC",
+  "authors": [
+    {
+      "name": "Álvaro Hernández Colino",
+      "email": "alvarohcolino@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Model\\": "./models",
+      "MVC\\": "./",
+      "Controllers\\": "./controllers"
+    }
+  }
 }

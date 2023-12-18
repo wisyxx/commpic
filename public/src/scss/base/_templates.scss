@@ -26,13 +26,13 @@
   overflow: hidden;
 
   .user-menu__button--profile {
-    @include m.standartButton(v.$softWhite, v.$blue, 0.5rem 0.8rem);
+    @include m.standartButton(v.$text, v.$primary, 0.5rem 0.8rem);
   }
   .user-menu__button--settings {
-    @include m.standartButton(v.$softWhite, v.$grayishBlue, 0.5rem);
+    @include m.standartButton(v.$text, v.$secondary, 0.5rem);
   }
   .user-menu__button--logout {
-    @include m.standartButton(v.$softWhite, v.$softRed, 0.5rem);
+    @include m.standartButton(v.$text, v.$accent, 0.5rem);
   }
   .user-menu__button {
     display: flex;
@@ -58,7 +58,7 @@
     opacity: 1;
     z-index: 1;
 
-    background-color: transparentize($color: v.$softWhite, $amount: 0.7);
+    background-color: transparentize($color: v.$text, $amount: 0.7);
     backdrop-filter: blur(10px);
   }
 }

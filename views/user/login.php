@@ -1,22 +1,3 @@
-<?php
-require 'includes/app.php';
-includeTemplate('header');
-
-use App\User;
-
-$errors = User::getErrors();
-$user = new User;
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = new User($_POST['login']);
-    $errors = $user->validate();
-    if (empty($errors)) {
-        $errors = $user->login();
-    }
-}
-
-?>
-
 <main class="login">
     <form class="form" method="POST">
         <?php foreach ($errors as $error) : ?>
@@ -36,7 +17,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p class="form__paragraph">Don't have an account, <a class="form__link" href="register.php">create one</a></p>
     </form>
 </main>
-
-<?php
-includeTemplate('footer');
-?>

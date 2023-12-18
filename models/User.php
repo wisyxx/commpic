@@ -1,11 +1,10 @@
 <?php
 
-namespace App;
+namespace Model;
 
-class User
+class User extends ActiveRecord
 {
     protected static $errors = [];
-    protected static $db;
     protected static $columnsDB = [
         'id', 'name',
         'email', 'password'
@@ -48,7 +47,7 @@ class User
             $_SESSION['user-name'] = $userData->name;
             $_SESSION['user-email'] = $userData->email;
 
-            header('Location: /conversations.php');
+            header('Location: /conversations');
         } else if (!password_verify($this->password, $userData->password) || !$userData) {
             return $this->validate();
         }
@@ -77,72 +76,5 @@ class User
         }
 
         return self::$errors;
-    }
-
-    public static function getErrors()
-    {
-        return self::$errors;
-    }
-
-    /* ACTIVE RECORD */
-    protected function atributes()
-    {
-        $atributes = [];
-        foreach (self::$columnsDB as $column) {
-            if ($column === 'id') continue;
-            $atributes[$column] = $this->$column;
-        }
-
-        return $atributes;
-    }
-
-    protected function sanitizeAtributes()
-    {
-        $atributes = $this->atributes();
-
-        $sanitized = [];
-        foreach ($atributes as $key => $value) {
-            $sanitized[$key] = self::$db->escape_string($value);
-        }
-
-        return $sanitized;
-    }
-
-    protected function queryDB($query)
-    {
-        $result = self::$db->query($query);
-
-        $objectsArr = [];
-
-        /* 
-        *   $arr stores the DB row queried with $result so when there's 
-        *   no more rows $arr = null and the loop ends
-        */
-        while ($arr = $result->fetch_assoc()) {
-            $objectsArr[] = $this->createObject($arr);
-        }
-        // Release memory
-        $result->free();
-
-        return $objectsArr;
-    }
-
-    protected static function createObject($arr)
-    {
-        $obj = new self;
-
-        foreach ($arr as $key => $value) {
-            if (property_exists($obj, $key)) {
-                $obj->$key = $value;
-            }
-        }
-        return $obj;
-    }
-
-
-    /* DB */
-    public static function setDB($database)
-    {
-        self::$db = $database;
     }
 }

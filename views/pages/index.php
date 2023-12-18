@@ -1,9 +1,3 @@
-<?php
-require "includes/app.php";
-
-includeTemplate('header');
-?>
-
 <main class="landing-page">
 	<h1 class="landig-page__title">Commpic</h1>
 
@@ -14,10 +8,6 @@ includeTemplate('header');
 			while you share your ideas
 		</p>
 
-		<a class="landing-page__link" href="/login.php">Get started</a>
+		<a class="landing-page__link" href="user/login">Get started</a>
 	</section>
 </main>
-
-<?php
-includeTemplate('footer');
-?>
