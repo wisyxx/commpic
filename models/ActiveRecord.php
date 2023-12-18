@@ -7,7 +7,9 @@ class ActiveRecord
     protected static $db;
     protected static $columnsDB = [];
     protected static $errors = [];
+    protected static $table = '';
 
+    /* VALIDATION */
     public static function getErrors()
     {
         return static::$errors;
@@ -18,7 +20,18 @@ class ActiveRecord
         return static::$errors;
     }
 
-    protected function queryDB($query)
+    /* DB INTERACTING METHODS */
+    public static function all() {
+        $query = "SELECT * FROM ";
+        $query .= static::$table;
+
+        $result = self::queryDB($query);
+
+        return $result;
+    }
+
+    // Creates new instances of the object for every row queried (uses createObject())
+    protected static function queryDB($query)
     {
         $result = self::$db->query($query);
 
@@ -29,12 +42,25 @@ class ActiveRecord
         *   no more rows $arr = null and the loop ends
         */
         while ($arr = $result->fetch_assoc()) {
-            $objectsArr[] = $this->createObject($arr);
+            $objectsArr[] = static::createObject($arr);
         }
+
         // Release memory
         $result->free();
-
+        
         return $objectsArr;
+    }
+    
+    protected static function createObject($arr)
+    {
+        $obj = new static;
+
+        foreach ($arr as $key => $value) {
+            if (property_exists($obj, $key)) {
+                $obj->$key = $value;
+            }
+        }
+        return $obj;
     }
 
     protected function atributes()
@@ -60,17 +86,6 @@ class ActiveRecord
         return $sanitized;
     }
 
-    protected static function createObject($arr)
-    {
-        $obj = new static;
-
-        foreach ($arr as $key => $value) {
-            if (property_exists($obj, $key)) {
-                $obj->$key = $value;
-            }
-        }
-        return $obj;
-    }
 
     /* DB */
     public static function setDB($database)

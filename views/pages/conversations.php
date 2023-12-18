@@ -6,148 +6,15 @@
 </header>
 
 <main class="conversations">
+    <?php foreach($conversations as $conversation) : ?>
     <div class="conversation">
-        <h1>Title examle</h1>
+        <h1><?php echo $conversation->name ?></h1>
         <div class="conversation__data">
-            <p>Users: 5</p>
+            <p class="conversation__author"><?php  ?></p>
             <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
+                
             </div>
         </div>
     </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
-    <div class="conversation">
-        <h1>Title examle</h1>
-        <div class="conversation__data">
-            <p>Users: 5</p>
-            <div class="tags">
-                <p class="no-margin">#tag1</p>
-                <p class="no-margin">#tag2</p>
-                <p class="no-margin">#tag3</p>
-                <p class="no-margin">#tag4</p>
-            </div>
-        </div>
-    </div>
+    <?php endforeach; ?>
 </main>
