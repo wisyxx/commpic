@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use MVC\Router;
+use Model\Conversations;
 
 class ConversationsController
 {
@@ -14,8 +15,6 @@ class ConversationsController
             header('Location: /user/login');
         }
 
-        $router->render('pages/conversations', [
-
-        ]);
+        $router->render('pages/conversations', []);
     }
 }
