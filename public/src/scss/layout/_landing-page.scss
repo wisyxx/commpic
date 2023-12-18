@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   .landing-page__paragraph {
     width: 50rem;
     font-size: 2.4rem;
@@ -33,15 +33,11 @@
     position: relative;
     padding: 1rem;
     font-size: 2.4rem;
-    color: v.$secondary;
+    color: v.$accent;
     border-radius: 1rem;
     font-weight: 500;
     background: rgb(250, 235, 239);
-    background: linear-gradient(
-      141deg,
-      rgba(250, 235, 239, 1) 0%,
-      rgba(86, 97, 198, 1) 100%
-    );
+    background: linear-gradient(141deg, v.$text 0%, v.$background 100%);
     background-size: 30rem;
     background-position: right;
 
@@ -66,13 +62,17 @@
       height: 0.1em;
       opacity: 0;
       transition: all 300ms;
-      background-color: v.$secondary;
+      background-color: v.$accent;
       transform: scale(0);
       border-radius: 1rem;
     }
     &:hover {
       transition: all 300ms;
-      background-position: left;
+      background-position: center;
+      // Box shadow
+      -webkit-box-shadow: 0px 0px 24px -2px rgba(225, 224, 251, 1);
+      -moz-box-shadow: 0px 0px 24px -2px rgba(225, 224, 251, 1);
+      box-shadow: 0px 0px 24px -2px rgba(225, 224, 251, 1);
 
       // Flare
       &::before {
