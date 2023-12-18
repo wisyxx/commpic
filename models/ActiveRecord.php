@@ -2,13 +2,39 @@
 
 namespace Model;
 
-class ActiveRecord 
+class ActiveRecord
 {
     protected static $db;
+    protected static $columnsDB = [];
+    protected static $errors = [];
 
     public static function getErrors()
     {
         return static::$errors;
+    }
+
+    public function validate() {
+        static::$errors = [];
+        return static::$errors;
+    }
+
+    protected function queryDB($query)
+    {
+        $result = self::$db->query($query);
+
+        $objectsArr = [];
+
+        /* 
+        *   $arr stores the DB row queried with $result so when there's 
+        *   no more rows $arr = null and the loop ends
+        */
+        while ($arr = $result->fetch_assoc()) {
+            $objectsArr[] = $this->createObject($arr);
+        }
+        // Release memory
+        $result->free();
+
+        return $objectsArr;
     }
 
     protected function atributes()
@@ -34,25 +60,6 @@ class ActiveRecord
         return $sanitized;
     }
 
-    protected function queryDB($query)
-    {
-        $result = self::$db->query($query);
-
-        $objectsArr = [];
-
-        /* 
-        *   $arr stores the DB row queried with $result so when there's 
-        *   no more rows $arr = null and the loop ends
-        */
-        while ($arr = $result->fetch_assoc()) {
-            $objectsArr[] = $this->createObject($arr);
-        }
-        // Release memory
-        $result->free();
-
-        return $objectsArr;
-    }
-
     protected static function createObject($arr)
     {
         $obj = new static;
@@ -64,7 +71,6 @@ class ActiveRecord
         }
         return $obj;
     }
-
 
     /* DB */
     public static function setDB($database)
