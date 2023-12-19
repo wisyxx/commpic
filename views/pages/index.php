@@ -8,6 +8,6 @@
 			while you share your ideas
 		</p>
 
-		<a class="landing-page__link" href="user/login">Get started</a>
+		<a class="landing-page__link" href="/login">Get started</a>
 	</section>
 </main>

@@ -1,6 +1,6 @@
 <main class="login">
     <h1 class="login__title">Your conversation starts here</h1>
-    <form class="form" method="POST">
+    <form class="form" method="POST" action="/login">
         <?php foreach ($errors as $error) : ?>
             <div class="errors">
                 <?php echo $error; ?>
@@ -15,6 +15,6 @@
         </fieldset>
 
         <input class="form__submit" type="submit" value="Enter">
-        <p class="form__paragraph">Don't have an account, <a class="form__link" href="register.php">create one</a></p>
+        <p class="form__paragraph">Don't have an account, <a class="form__link" href="/register">create one</a></p>
     </form>
 </main>

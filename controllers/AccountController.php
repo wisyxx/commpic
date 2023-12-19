@@ -3,18 +3,18 @@
 namespace Controllers;
 
 use MVC\Router;
-use Model\User;
+use Model\Account;
 
 
-class UserController
+class AccountController
 {
     public static function login(Router $router)
     {
-        $user = new User;
-        $errors = User::getErrors();
+        $user = new Account;
+        $errors = Account::getErrors();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $user = new User($_POST['login']);
+            $user = new Account($_POST['login']);
             $user->validate();
 
             if (empty($errors)) {
