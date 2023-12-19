@@ -4,14 +4,14 @@ require_once __DIR__ . '../../includes/app.php';
 use MVC\Router;
 
 use Controllers\ConversationsController;
-use Controllers\UserController;
 use Controllers\PagesController;
+use Controllers\AccountController;
 
 $router = new Router;
 
 /* USER (public) */
-$router->get('/user/login', [UserController::class, 'login']);
-$router->post('/user/login', [UserController::class, 'login']);
+$router->get('/login', [AccountController::class, 'login']);
+$router->post('/login', [AccountController::class, 'login']);
 
 /* PAGES (public) */
 $router->get('/conversations', [ConversationsController::class, 'conversations']);
