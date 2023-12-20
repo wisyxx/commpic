@@ -45,4 +45,10 @@ class AccountController
             'user' => $user
         ]);
     }
+    
+    public static function logout() {
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
+    }
 }

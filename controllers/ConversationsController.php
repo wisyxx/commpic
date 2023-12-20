@@ -13,7 +13,7 @@ class ConversationsController
         session_start();
         
         if (!isset($_SESSION['user-name'])) {
-            header('Location: /user/login');
+            header('Location: /login');
         }
 
         $conversations = Conversations::all();

@@ -12,6 +12,7 @@ $router = new Router;
 /* USER (public) */
 $router->get('/login', [AccountController::class, 'login']);
 $router->post('/login', [AccountController::class, 'login']);
+$router->get('/logout', [AccountController::class, 'logout']);
 
 /* PAGES (public) */
 $router->get('/conversations', [ConversationsController::class, 'conversations']);
