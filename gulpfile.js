@@ -12,9 +12,9 @@ const cache = require('gulp-cache');
 const webp = require('gulp-webp');
 
 const paths = {
-  scss: 'public/src/scss/**/*.scss',
-  js: 'public/src/js/**/*.js',
-  imagenes: 'public/src/img/**/*',
+  scss: 'src/scss/**/*.scss',
+  js: 'src/js/**/*.js',
+  imagenes: 'src/images/**/*',
 };
 
 function css() {
@@ -42,7 +42,7 @@ function javascript() {
 function imagenes() {
   return src(paths.imagenes)
     .pipe(cache(imagemin({ optimizationLevel: 3 })))
-    .pipe(dest('public/build/img'));
+    .pipe(dest('public/build/images'));
 }
 
 function versionWebp() {

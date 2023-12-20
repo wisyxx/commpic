@@ -5,7 +5,7 @@ Commpic is a web page that can be used to talk about any topic with people all a
 ## Screenshots 
 | *Landing page* | *Log in* |
 |:--------------:|:--------------:|
-| ![Landing-page](public/src/images/screenshots/landing-page.png) | ![login](public/src/images/screenshots/login.png) |
+| ![Landing-page](public/build/images/screenshots/landing-page.webp) | ![login](public/build/images/screenshots/login.webp) |
 
 ## Run Locally
 Clone the project
