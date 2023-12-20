@@ -1,5 +1,5 @@
 <div class="user">
-    <img class="user__ppf" src="../../public/build/images/avatars/myppf.JPG" alt="User profile picture">
+    <img class="user__ppf" src="/build/images/avatars/myppf.JPG" alt="User profile picture">
 
     <menu class="user-menu">
         <a class="user-menu__button user-menu__button--profile" href="profile.php">
@@ -29,5 +29,5 @@
                 <path d="M18 15l3 -3" />
             </svg>
         </a>
-    </menu>
+</div>
 </div>
