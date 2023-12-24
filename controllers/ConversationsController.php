@@ -41,9 +41,8 @@ class ConversationsController
 
         $conversation = Conversation::getMessages($id);
 
-        /* CALCULATE DATE DIFF */
+        /* CALCULATE DATE DIFF & SET AUTHOR NAME*/
         foreach ($conversation as $chat) {
-
             $date = '';
 
             $creationDate = new DateTime($chat->creationDate);
@@ -74,7 +73,11 @@ class ConversationsController
             } else {
                 $date = "Right now";
             }
+            // Set date stamp
             $chat->creationDate = $date;
+
+            // Set author name
+            $chat->author = Conversation::getUserName($chat->author);
         }
 
         $router->render('conversations/conversation', [

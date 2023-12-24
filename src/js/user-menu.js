@@ -1,6 +1,8 @@
-const ppf = document.querySelector('.user__ppf');
+const ppf = document.querySelector('.user__ppf') ?? null;
 const userMenu = document.querySelector('.user-menu');
 
-ppf.addEventListener('click', () => {
+if (ppf !== null) {
+  ppf.addEventListener('click', () => {
     userMenu.classList.toggle('user-menu--showing');
-})
+  });
+}
