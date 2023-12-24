@@ -11,7 +11,7 @@ class Conversations extends ActiveRecord
    public $name;
    public $createdBy;
 
-   public function __construct($args = []) 
+   public function __construct($args = [])
    {
       $this->id = $args['id'] ?? null;
       $this->name = $args['name'] ?? '';

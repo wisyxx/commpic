@@ -9,13 +9,18 @@ use Controllers\AccountController;
 
 $router = new Router;
 
-/* USER (public) */
+/* USER */
 $router->get('/login', [AccountController::class, 'login']);
 $router->post('/login', [AccountController::class, 'login']);
 $router->get('/logout', [AccountController::class, 'logout']);
 
-/* PAGES (public) */
-$router->get('/conversations', [ConversationsController::class, 'conversations']);
+/* PAGES */
 $router->get('/', [PagesController::class, 'index']);
+$router->get('/404', [PagesController::class, 'pageNotFound']);
+
+/* CONVERSATIONS */
+$id = $_GET['id'] ?? null;
+$router->get('/conversations', [ConversationsController::class, 'conversations']);
+$router->get("/conversation", [ConversationsController::class, 'conversation']);
 
 $router->checkRoutes();

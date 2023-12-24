@@ -1,9 +1,5 @@
 @use '../base/variables' as v;
 
-:root {
-  --flare: url(../images/flare.svg);
-}
-
 .landing-page {
   display: flex;
   flex-direction: column;

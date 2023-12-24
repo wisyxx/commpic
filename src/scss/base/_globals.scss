@@ -1,5 +1,10 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900;1,9..40,400&display=swap');
+
+:root {
+  --flare: url(../images/flare.svg);
+}
 
 *,
 *:before,
@@ -59,4 +64,11 @@ a {
     background-color: lighten(v.$secondary, $amount: 7);
     transition: background-color 200ms ease-in-out;
   }
+}
+
+.back-button {
+  @include m.standartButton(v.$white, v.$primary, 1rem);
+  height: min-content;
+  width: min-content;
+  margin: 2rem;
 }

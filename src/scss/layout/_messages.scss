@@ -1,0 +1,71 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.messages {
+  display: grid;
+  grid-template-columns: [break-start] 0.5fr [content-start] 2.5fr [content-end] 0.5fr [break-end];
+  @include m.movile {
+    grid-template-columns: [content-start] 1fr [content-end];
+  }
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: v.$white;
+  color: v.$black;
+
+  margin: 2rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+
+  
+  .message__info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  
+  grid-area: content-start;
+  grid-row: auto;
+}
+
+.user {
+  display: flex;
+  gap: 2rem;
+
+  .user__ppf {
+    width: 5rem;
+    height: 5rem;
+
+    object-fit: cover;
+    border-radius: 50%;
+    @include m.tablet {
+    }
+  }
+}
+
+.reply-button {  
+  display: flex;
+  align-items: center;
+  color: v.$moderateBlue;
+  transition: all 0.3s;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+
+  img {
+    width: 2rem;
+    margin-right: 1rem;
+  }
+
+  &::after {
+    content: 'Reply';
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    background-color: transparentize(v.$moderateBlue, $amount: 0.5);
+  }
+}

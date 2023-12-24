@@ -7,12 +7,12 @@
 
 <main class="conversations">
     <?php foreach ($conversations as $conversation) : ?>
-        <a href="/<?php $conversation->link ?>" class="conversation">
+        <a href="/conversation?id=<?php echo $conversation->id ?>" class="conversation">
             <h1><?php echo $conversation->name ?></h1>
             <div class="conversation__data">
                 <p class="conversation__author"><?php  ?></p>
                 <div class="tags">
-
+                    
                 </div>
             </div>
         </a>
