@@ -1,5 +1,5 @@
 <div class="user">
-    <img class="user__ppf" src="/build/images/avatars/myppf.JPG" alt="User profile picture">
+    <img class="user__ppf" src="/build/images/avatars/myppf.webp" alt="User profile picture">
 
     <menu class="user-menu">
         <a class="user-menu__button user-menu__button--profile" href="profile.php">

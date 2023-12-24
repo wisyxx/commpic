@@ -46,7 +46,7 @@ function imagenes() {
 }
 
 function versionWebp() {
-  return src(paths.imagenes).pipe(webp()).pipe(dest('public/build/img'));
+  return src(paths.imagenes).pipe(webp()).pipe(dest('public/build/images'));
 }
 
 function watchArchivos() {

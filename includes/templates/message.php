@@ -4,7 +4,7 @@
         <section class="message">
             <div class="message__info">
                 <div class="user">
-                    <img class="user__ppf--message" src="build/images/avatars/myppf.JPG" alt="User profile image">
+                    <img class="user__ppf--message" src="build/images/avatars/myppf.webp" alt="User profile image">
                     <p class="user__name"><?php echo $chat->author ?></p>
                     <?php if ($chat->author === $_SESSION['user-name']) : ?>
                         <p class="user__name--you">you</p>
