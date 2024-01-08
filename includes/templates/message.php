@@ -18,7 +18,7 @@
                             <img src="build/images/icon-delete.svg" alt="Delete icon">
                         </a>
                         <div class="message__actions--edit">
-                            <img src="build/images/icon-edit.svg" alt="Edit icon">
+                            <img src="  build/images/icon-edit.svg" alt="Edit icon">
                         </div>
                     <?php else : ?>
                         <a href="/reply" class="message__actions--reply">
@@ -33,4 +33,14 @@
             </p>
         </section>
     <?php endforeach; ?>
+
+    <section class="send">
+        <div class="user">
+            <img class="user__ppf--message" src="build/images/avatars/myppf.webp" alt="User ppf">
+        </div>
+        <form action="<?php $_SERVER['REQUEST_URI'] ?>" class="send__form" method="POST">
+            <textarea class="send__message" name="message" id="message" cols="30" rows="10"></textarea>
+            <input class="send__submit" type="submit" value="Send">
+        </form>
+    </section>
 </main>

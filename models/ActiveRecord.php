@@ -15,11 +15,6 @@ class ActiveRecord
         return static::$errors;
     }
 
-    public function validate() {
-        static::$errors = [];
-        return static::$errors;
-    }
-
     /* DB INTERACTING METHODS */
     public static function all() {
         $query = "SELECT * FROM ";

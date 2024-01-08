@@ -61,8 +61,8 @@ class Account extends ActiveRecord
 
         if ($auth) {
             session_start();
-
             $_SESSION['user-name'] = $user['name'];
+            $_SESSION['user-id'] = $user['id'];
             $_SESSION['user-email'] = $user['email'];
             return true;
         } else {

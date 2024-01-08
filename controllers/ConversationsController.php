@@ -80,6 +80,12 @@ class ConversationsController
             $chat->author = Conversation::getUserName($chat->author);
         }
 
+        /* SEND MESSAGES */
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            Conversation::send();
+            header("refresh:0");
+        }
+
         $router->render('conversations/conversation', [
             'conversation' => $conversation
         ]);

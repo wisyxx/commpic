@@ -22,5 +22,6 @@ $router->get('/404', [PagesController::class, 'pageNotFound']);
 $id = $_GET['id'] ?? null;
 $router->get('/conversations', [ConversationsController::class, 'conversations']);
 $router->get("/conversation", [ConversationsController::class, 'conversation']);
+$router->post("/conversation", [ConversationsController::class, 'conversation']);
 
 $router->checkRoutes();

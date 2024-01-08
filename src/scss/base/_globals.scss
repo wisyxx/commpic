@@ -71,4 +71,7 @@ a {
   height: min-content;
   width: min-content;
   margin: 2rem;
+  @include m.movile {
+    margin: 2rem 0 0 2rem;
+  }
 }
